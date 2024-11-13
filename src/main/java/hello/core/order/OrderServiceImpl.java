@@ -25,25 +25,29 @@ public class OrderServiceImpl implements OrderService {
         this.discountPolicy = discountPolicy;
     }
 
-//    // 2. 수정자 주입(setter 주입)
-//    @Autowired(required = false)    // 주입할 대상이 동작하기 위해
-//    public void setMemberRepository(MemberRepository memberRepository) {
-//        System.out.println("memberRepository = " + memberRepository);
-//        this.memberRepository = memberRepository;
-//    }
-//
-//    @Autowired
-//    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
-//        System.out.println("discountPolicy = " + discountPolicy);
-//        this.discountPolicy = discountPolicy;
-//    }
+/*
+    // 2. 수정자 주입(setter 주입)
+    @Autowired(required = false)    // 주입할 대상이 동작하기 위해
+    public void setMemberRepository(MemberRepository memberRepository) {
+        System.out.println("memberRepository = " + memberRepository);
+        this.memberRepository = memberRepository;
+    }
 
-//    // 4. 메서드 주입
-//    @Autowired
-//    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    @Autowired
+    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+        System.out.println("discountPolicy = " + discountPolicy);
+        this.discountPolicy = discountPolicy;
+    }
+*/
+
+/*
+    // 4. 메서드 주입
+    @Autowired
+    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+*/
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
