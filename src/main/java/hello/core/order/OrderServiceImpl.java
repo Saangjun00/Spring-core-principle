@@ -18,6 +18,8 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
 
     // 1. 생성자 주입
+    // 생성자 주입을 사용하면 final 키워드를 사용할 수 있음
+    // -> 필드를 누락한 경우 컴파일 오류를 발생시킴
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         System.out.println("1. OrderServiceImpl.OrderServiceImpl");
