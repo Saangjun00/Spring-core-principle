@@ -6,6 +6,7 @@ import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,9 +20,20 @@ public class OrderServiceImpl implements OrderService {
 //    @Autowired
     private final DiscountPolicy discountPolicy;
 
+    // @Autowired 매칭
+    // 1. 타입 매칭
+    // 2. 타입 매칭 결과가 2개 이상일 때 필드 명, 파라미터 명으로 빈 이름 매칭
+//    @Autowired
+//    private DiscountPolicy rateDiscountPolicy;
+
     // 1. 생성자 주입
     // 생성자 주입을 사용하면 final 키워드를 사용할 수 있음
     // -> 필드를 누락한 경우 컴파일 오류를 발생시킴
+
+    // @Qualifier 매칭
+    // 1. @Qulifier끼리 매칭
+    // 2. 빈 이름 매칭
+    // 3. NoSuchBeanDefinitionException 예외 발생
     @Autowired      // 생성자가 한 개일 경우 생략 가능
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         System.out.println("1. OrderServiceImpl.OrderServiceImpl");
