@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor    // final 변수가 붙은 것을 자동으로 생성자를 만들어줌
+//@RequiredArgsConstructor    // final 변수가 붙은 것을 자동으로 생성자를 만들어줌
 public class OrderServiceImpl implements OrderService {
 
     // 3. 필드 주입(외부에서 변경이 불가능해서 테스트하기 힘들기 때문에 비추천)
@@ -22,12 +22,12 @@ public class OrderServiceImpl implements OrderService {
     // 1. 생성자 주입
     // 생성자 주입을 사용하면 final 키워드를 사용할 수 있음
     // -> 필드를 누락한 경우 컴파일 오류를 발생시킴
-//    @Autowired      // 생성자가 한 개일 경우 생략 가능
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        System.out.println("1. OrderServiceImpl.OrderServiceImpl");
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    @Autowired      // 생성자가 한 개일 경우 생략 가능
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        System.out.println("1. OrderServiceImpl.OrderServiceImpl");
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
 /*
     // 2. 수정자 주입(setter 주입)
