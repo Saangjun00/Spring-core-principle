@@ -4,7 +4,7 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
 // 초기화, 소멸 인터페이스 단점: 스프링 전용 인터페이스, 초기화, 소멸 메서드 이름 변경 X
-public class NetworkClient implements InitializingBean, DisposableBean {
+public class NetworkClient { // implements InitializingBean, DisposableBean {
 
     private String url;
 
@@ -31,16 +31,14 @@ public class NetworkClient implements InitializingBean, DisposableBean {
         System.out.println("close: " + url);
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("NetworkClient.afterPropertiesSet");
+    public void init() {
+        System.out.println("NetworkClient.init");
         connect();
         call("초기화 연결 메시지");
     }
 
-    @Override
-    public void destroy() throws Exception {
-        System.out.println("NetworkClient.destroy");
+    public void close() {
+        System.out.println("NetworkClient.close");
         disconnect();
     }
 }
